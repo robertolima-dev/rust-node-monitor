@@ -23,7 +23,9 @@ jobs:
         include:
           - host: macos-latest
             target: aarch64-apple-darwin
-          - host: macos-13
+          - host: macos-latest
+            # Cross-compile the Intel target on the arm64 runner (Xcode clang
+            # supports this natively) to avoid the scarce macos-13 Intel queue.
             target: x86_64-apple-darwin
           - host: ubuntu-latest
             target: x86_64-unknown-linux-gnu
