@@ -1,0 +1,37 @@
+{
+  "name": "rust-node-monitor-win32-x64-msvc",
+  "version": "0.1.0",
+  "os": [
+    "win32"
+  ],
+  "cpu": [
+    "x64"
+  ],
+  "main": "rust-node-monitor.win32-x64-msvc.node",
+  "files": [
+    "rust-node-monitor.win32-x64-msvc.node"
+  ],
+  "description": "Lightweight Node.js monitoring powered by Rust.",
+  "keywords": [
+    "monitoring",
+    "metrics",
+    "rust",
+    "napi",
+    "performance",
+    "cpu",
+    "memory",
+    "express",
+    "fastify",
+    "nestjs"
+  ],
+  "author": "Roberto Lima",
+  "homepage": "https://github.com/robertolima/rust-node-monitor#readme",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/robertolima/rust-node-monitor.git"
+  }
+}

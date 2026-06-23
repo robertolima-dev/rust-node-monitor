@@ -1,0 +1,33 @@
+[package]
+name = "rust-node-monitor"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Lightweight Node.js monitoring powered by Rust"
+repository = "https://github.com/robertolima/rust-node-monitor"
+
+[lib]
+# cdylib => gera uma biblioteca dinâmica (.node) que o Node consegue carregar.
+crate-type = ["cdylib"]
+
+[dependencies]
+# napi: runtime de bindings N-API (a ponte entre Rust e o motor V8/Node).
+napi = { version = "2", default-features = false, features = ["napi4"] }
+# napi-derive: macros (#[napi]) que geram o código de "cola" automaticamente.
+napi-derive = "2"
+# sysinfo: coleta métricas de processo/sistema de forma multiplataforma.
+sysinfo = { version = "0.33", default-features = false, features = ["system"] }
+
+# Contagem de threads do processo no macOS via APIs Mach.
+[target.'cfg(target_os = "macos")'.dependencies]
+mach2 = "0.4"
+
+[build-dependencies]
+# napi-build: roda no build.rs e configura flags de linkagem do N-API.
+napi-build = "2"
+
+[profile.release]
+# Binário menor e mais rápido para distribuição.
+lto = true
+strip = "symbols"
+opt-level = 3

@@ -1,0 +1,37 @@
+{
+  "name": "rust-node-monitor-darwin-arm64",
+  "version": "0.1.0",
+  "os": [
+    "darwin"
+  ],
+  "cpu": [
+    "arm64"
+  ],
+  "main": "rust-node-monitor.darwin-arm64.node",
+  "files": [
+    "rust-node-monitor.darwin-arm64.node"
+  ],
+  "description": "Lightweight Node.js monitoring powered by Rust.",
+  "keywords": [
+    "monitoring",
+    "metrics",
+    "rust",
+    "napi",
+    "performance",
+    "cpu",
+    "memory",
+    "express",
+    "fastify",
+    "nestjs"
+  ],
+  "author": "Roberto Lima",
+  "homepage": "https://github.com/robertolima/rust-node-monitor#readme",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/robertolima/rust-node-monitor.git"
+  }
+}

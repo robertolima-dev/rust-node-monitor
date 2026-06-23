@@ -1,0 +1,113 @@
+{
+  "name": "rust-node-monitor",
+  "version": "0.1.0",
+  "description": "Lightweight Node.js monitoring powered by Rust.",
+  "keywords": [
+    "monitoring",
+    "metrics",
+    "rust",
+    "napi",
+    "performance",
+    "cpu",
+    "memory",
+    "express",
+    "fastify",
+    "nestjs"
+  ],
+  "license": "MIT",
+  "author": "Roberto Lima",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/robertolima/rust-node-monitor.git"
+  },
+  "homepage": "https://github.com/robertolima/rust-node-monitor#readme",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./express": {
+      "types": "./dist/express.d.ts",
+      "import": "./dist/express.mjs",
+      "require": "./dist/express.js"
+    },
+    "./fastify": {
+      "types": "./dist/fastify.d.ts",
+      "import": "./dist/fastify.mjs",
+      "require": "./dist/fastify.js"
+    },
+    "./nestjs": {
+      "types": "./dist/nestjs.d.ts",
+      "import": "./dist/nestjs.mjs",
+      "require": "./dist/nestjs.js"
+    }
+  },
+  "files": [
+    "dist",
+    "binding.js",
+    "binding.d.ts",
+    "index.node",
+    "*.node",
+    "README.md",
+    "LICENSE"
+  ],
+  "napi": {
+    "name": "rust-node-monitor",
+    "triples": {
+      "defaults": true,
+      "additional": [
+        "aarch64-apple-darwin",
+        "aarch64-unknown-linux-gnu",
+        "x86_64-unknown-linux-gnu",
+        "x86_64-pc-windows-msvc"
+      ]
+    }
+  },
+  "engines": {
+    "node": ">= 18"
+  },
+  "scripts": {
+    "build:native": "napi build --platform --release --js binding.js --dts binding.d.ts",
+    "build:native:debug": "napi build --platform --js binding.js --dts binding.d.ts",
+    "build:js": "tsup",
+    "build": "npm run build:native && npm run build:js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@napi-rs/cli": "^2.18.4",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.14.0",
+    "@nestjs/common": "^10.3.0",
+    "express": "^4.19.2",
+    "fastify": "^4.28.0",
+    "rxjs": "^7.8.1",
+    "tsup": "^8.1.0",
+    "typescript": "^5.5.0",
+    "vitest": "^1.6.0"
+  },
+  "peerDependencies": {
+    "@nestjs/common": ">=9",
+    "express": ">=4",
+    "fastify": ">=4",
+    "rxjs": ">=7"
+  },
+  "peerDependenciesMeta": {
+    "@nestjs/common": { "optional": true },
+    "express": { "optional": true },
+    "fastify": { "optional": true },
+    "rxjs": { "optional": true }
+  },
+  "optionalDependencies": {
+    "rust-node-monitor-darwin-arm64": "0.1.0",
+    "rust-node-monitor-darwin-x64": "0.1.0",
+    "rust-node-monitor-linux-arm64-gnu": "0.1.0",
+    "rust-node-monitor-linux-x64-gnu": "0.1.0",
+    "rust-node-monitor-win32-x64-msvc": "0.1.0"
+  }
+}
