@@ -81,8 +81,9 @@ jobs:
       - run: npm test
 
   # ---------------------------------------------------------------------------
-  # On a version tag (vX.Y.Z): gather all binaries into the per-platform npm
-  # packages and publish the main package + each platform package to npm.
+  # On a version tag (vX.Y.Z): bundle ALL platform binaries into the single
+  # main package and publish it. One package on npm; the loader picks the
+  # matching local .node at runtime.
   # ---------------------------------------------------------------------------
   publish:
     name: publish
@@ -100,9 +101,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Generate native loader/types and build JS layer
-        # napi build (re)generates the platform-aware binding.js + binding.d.ts.
-        # It also emits a local .node, which we remove below so the MAIN package
-        # ships no binary (binaries live in the per-platform packages).
+        # napi build (re)generates binding.js + binding.d.ts (the platform loader).
         run: |
           npx napi build --platform --release --js binding.js --dts binding.d.ts
           npm run build:js
@@ -111,20 +110,10 @@ jobs:
         with:
           path: artifacts
           merge-multiple: true
-      - name: Distribute binaries into per-platform npm dirs
-        run: npx napi artifacts -d artifacts
-      - name: Remove local binary from the main package
-        run: rm -f *.node
-      - name: Publish main package
+      - name: Bundle every platform binary into the package root
+        run: cp artifacts/*.node .
+      - name: Publish package
         # --ignore-scripts skips prepublishOnly (we already built everything).
         run: npm publish --access public --ignore-scripts
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: Publish per-platform packages
-        run: |
-          for dir in npm/*/; do
-            echo "Publishing $dir"
-            (cd "$dir" && npm publish --access public) || true
-          done
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

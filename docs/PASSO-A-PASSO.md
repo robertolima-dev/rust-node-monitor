@@ -218,9 +218,14 @@ npm run build            # build:native + build:js
 npm publish --access public
 ```
 
-O `package.json` declara `optionalDependencies` para os pacotes por plataforma
-(`rust-node-monitor-darwin-arm64`, etc.). O loader `binding.js` escolhe o binário
-certo em runtime. Assim o usuário instala sem precisar de compilador.
+A partir da v0.1.2 o pacote é **único**: os binários de todas as plataformas são
+empacotados dentro do próprio `rust-node-monitor` (campo `files: ["*.node"]`). O
+loader `binding.js` escolhe o `.node` certo em runtime. Assim o usuário instala
+sem precisar de compilador e o perfil do npm fica com um só pacote.
+
+> Histórico: as versões 0.1.0/0.1.1 usaram o modelo de `optionalDependencies` com
+> um pacote de binário por plataforma (padrão do esbuild/swc). Migramos para o
+> pacote único para simplificar a publicação e a organização no npm.
 
 ---
 
