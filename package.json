@@ -1,6 +1,6 @@
 {
   "name": "rust-node-monitor",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Lightweight Node.js monitoring powered by Rust.",
   "keywords": [
     "monitoring",
@@ -23,7 +23,7 @@
     "type": "git",
     "url": "https://github.com/robertolima-dev/rust-node-monitor.git"
   },
-  "homepage": "https://github.com/robertolima-dev/rust-node-monitor#readme",
+  "homepage": "https://rust-node-monitor.vercel.app",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -107,10 +107,10 @@
     "rxjs": { "optional": true }
   },
   "optionalDependencies": {
-    "rust-node-monitor-darwin-arm64": "0.1.0",
-    "rust-node-monitor-darwin-x64": "0.1.0",
-    "rust-node-monitor-linux-arm64-gnu": "0.1.0",
-    "rust-node-monitor-linux-x64-gnu": "0.1.0",
-    "rust-node-monitor-win32-x64-msvc": "0.1.0"
+    "rust-node-monitor-darwin-arm64": "0.1.1",
+    "rust-node-monitor-darwin-x64": "0.1.1",
+    "rust-node-monitor-linux-arm64-gnu": "0.1.1",
+    "rust-node-monitor-linux-x64-gnu": "0.1.1",
+    "rust-node-monitor-win32-x64-msvc": "0.1.1"
   }
 }

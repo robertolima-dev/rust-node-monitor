@@ -9,10 +9,12 @@ releases, HTTP metrics — with very low overhead.
 It ships as a prebuilt native addon (via [napi-rs](https://napi.rs/)), so there
 is **no compiler required at install time** on supported platforms.
 
-[![CI](https://github.com/robertolima/rust-node-monitor/actions/workflows/CI.yml/badge.svg)](https://github.com/robertolima/rust-node-monitor/actions/workflows/CI.yml)
+[![CI](https://github.com/robertolima-dev/rust-node-monitor/actions/workflows/CI.yml/badge.svg)](https://github.com/robertolima-dev/rust-node-monitor/actions/workflows/CI.yml)
 [![npm](https://img.shields.io/npm/v/rust-node-monitor.svg)](https://www.npmjs.com/package/rust-node-monitor)
 ![node](https://img.shields.io/badge/node-%3E%3D18-43853d)
 ![license](https://img.shields.io/badge/license-MIT-blue)
+
+🌐 **Website:** [rust-node-monitor.vercel.app](https://rust-node-monitor.vercel.app/)
 
 ---
 

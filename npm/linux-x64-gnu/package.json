@@ -1,6 +1,6 @@
 {
   "name": "rust-node-monitor-linux-x64-gnu",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "os": [
     "linux"
   ],
@@ -28,7 +28,7 @@
     "name": "Roberto Lima",
     "url": "https://github.com/robertolima-dev"
   },
-  "homepage": "https://github.com/robertolima-dev/rust-node-monitor#readme",
+  "homepage": "https://rust-node-monitor.vercel.app",
   "license": "MIT",
   "engines": {
     "node": ">= 18"
