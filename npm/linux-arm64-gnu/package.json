@@ -25,14 +25,14 @@
     "nestjs"
   ],
   "author": "Roberto Lima",
-  "homepage": "https://github.com/robertolima/rust-node-monitor#readme",
+  "homepage": "https://github.com/robertolima-dev/rust-node-monitor#readme",
   "license": "MIT",
   "engines": {
     "node": ">= 18"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/robertolima/rust-node-monitor.git"
+    "url": "https://github.com/robertolima-dev/rust-node-monitor.git"
   },
   "libc": [
     "glibc"

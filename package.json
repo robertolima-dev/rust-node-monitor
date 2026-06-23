@@ -18,9 +18,9 @@
   "author": "Roberto Lima",
   "repository": {
     "type": "git",
-    "url": "https://github.com/robertolima/rust-node-monitor.git"
+    "url": "https://github.com/robertolima-dev/rust-node-monitor.git"
   },
-  "homepage": "https://github.com/robertolima/rust-node-monitor#readme",
+  "homepage": "https://github.com/robertolima-dev/rust-node-monitor#readme",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",

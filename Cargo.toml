@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2021"
 license = "MIT"
 description = "Lightweight Node.js monitoring powered by Rust"
-repository = "https://github.com/robertolima/rust-node-monitor"
+repository = "https://github.com/robertolima-dev/rust-node-monitor"
 
 [lib]
 # cdylib => gera uma biblioteca dinâmica (.node) que o Node consegue carregar.
