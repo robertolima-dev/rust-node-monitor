@@ -261,4 +261,4 @@ build log (in Portuguese) explaining the Rust and napi-rs details.
 
 ## License
 
-[MIT](./LICENSE) © Roberto Lima
+[MIT](./LICENSE) © [Roberto Lima](https://github.com/robertolima-dev)

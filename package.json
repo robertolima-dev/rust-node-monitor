@@ -15,7 +15,10 @@
     "nestjs"
   ],
   "license": "MIT",
-  "author": "Roberto Lima",
+  "author": {
+    "name": "Roberto Lima",
+    "url": "https://github.com/robertolima-dev"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/robertolima-dev/rust-node-monitor.git"
