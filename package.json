@@ -1,6 +1,6 @@
 {
   "name": "rust-node-monitor",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Lightweight Node.js monitoring powered by Rust.",
   "keywords": [
     "monitoring",
