@@ -143,6 +143,33 @@ app.get("/metrics", (_req, res) => {
 });
 ```
 
+### `checkAlerts(thresholds, stats?): Alert[]`
+
+Simple, stateless threshold alerts over the process metrics. Pass the thresholds
+you want to watch; it returns the alerts that fired (a metric **exceeds** its
+threshold). Only the thresholds you provide are evaluated.
+
+```ts
+import { Monitor, checkAlerts } from "rust-node-monitor";
+
+const monitor = new Monitor().start();
+
+setInterval(() => {
+  const fired = checkAlerts(
+    { cpuPercent: 80, memoryRssBytes: 500_000_000 },
+    monitor.stats(), // pass stats for reliable CPU; defaults to snapshot()
+  );
+  for (const alert of fired) {
+    console.warn(`[alert] ${alert.metric}=${alert.value} > ${alert.threshold}`);
+  }
+}, 5000);
+```
+
+Each `Alert` is `{ metric, value, threshold, severity: "warning" }`, where
+`metric` is one of `"cpuPercent"`, `"memoryRssBytes"`, `"memoryVirtualBytes"`.
+Being stateless, *you* decide when to evaluate and what to do with the result
+(log, page, open an incident, forward to ImmutableLog…).
+
 ---
 
 ## Framework integrations
@@ -232,14 +259,19 @@ generated into `binding.d.ts`.
 
 ---
 
-## Roadmap (v0.2.0)
+## Roadmap
 
-- Event loop delay tracking.
-- Full request metrics (total, errors, latency avg/p95/p99) wired natively.
-- First-class Prometheus exporter helpers per framework.
-- Simple alerts (high CPU, high memory, stalled event loop).
-- Windows thread count.
-- Optional integration with ImmutableLog for health/audit events.
+**Shipped in v0.2.0**
+
+- ✅ Simple threshold alerts (high CPU, high memory) via `checkAlerts(...)`.
+
+**Planned**
+
+- 🔜 Event loop delay tracking (and a "stalled loop" alert).
+- 🔜 Full request metrics (total, errors, latency avg/p95/p99) wired natively.
+- 🔜 First-class Prometheus exporter helpers per framework.
+- 🔜 Windows thread count.
+- 🔜 Optional integration with ImmutableLog for health/audit events.
 
 ---
 

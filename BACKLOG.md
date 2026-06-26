@@ -8,7 +8,7 @@ the roadmap; the README mirrors the highlights.
 
 ---
 
-## Shipped — v0.1.x (current: 0.1.2)
+## Shipped — v0.1.x
 
 - ✅ `snapshot()` — point-in-time process metrics: `pid`, `cpuPercent`,
   `memoryRss`, `memoryVirtual`, `threads`, `uptimeSeconds`, `timestamp`.
@@ -22,14 +22,20 @@ the roadmap; the README mirrors the highlights.
 
 ---
 
-## Planned — v0.2.0
+## Shipped — v0.2.0
 
-- 🔜 **Event loop delay tracking** — surface lag as a first-class metric.
+- ✅ **Simple threshold alerts** — `checkAlerts(thresholds, stats?)` evaluates
+  CPU% / memory (RSS, virtual) thresholds and returns the fired alerts
+  (`{metric, value, threshold, severity}`). Stateless, pure TS.
+
+## Planned
+
+- 🔜 **Event loop delay tracking** — surface lag as a first-class metric (and a
+  "stalled loop" alert).
 - 🔜 **Native request metrics** — total, errors, latency avg / p95 / p99 wired
   through the Rust core (today the framework collectors are JS-side).
 - 🔜 **First-class Prometheus exporter helpers per framework** — drop-in
   `/metrics` route for Express/Fastify/NestJS (align with `rust-py-monitor`).
-- 🔜 **Simple alerts** — high CPU, high memory, stalled event loop.
 - 🔜 **Windows thread count** — `threads` currently returns `0` off Linux/macOS.
 - 🔜 **ImmutableLog integration** — optional emission of health/audit events
   (shared client/event shape with the other libs).

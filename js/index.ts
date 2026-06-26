@@ -22,6 +22,12 @@ export {
   type RequestMetricsOptions,
 } from "./metrics";
 
+export {
+  checkAlerts,
+  type Alert,
+  type AlertThresholds,
+} from "./alerts";
+
 /** Sanity-check: retorna "Hello from Rust" vindo do core nativo. */
 export const hello: () => string = native.hello;
 
